@@ -1,0 +1,33 @@
+[package]
+name = "invisible-labs-frost-ed25519-hd"
+version = "0.1.0"
+edition = "2021"
+description = "HD (non-hardened) key derivation for ZcashFoundation frost-ed25519"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Invisible-Labs/frost-ed25519-hd"
+readme = "README.md"
+keywords = ["frost", "ed25519", "threshold", "hd-wallet", "derivation"]
+categories = ["cryptography", "no-std"]
+include = [
+  "src/**/*.rs",
+  "tests/**/*.rs",
+  "vectors/*.json",
+  "README.md",
+  "ATTRIBUTION.md",
+  "LICENSE-MIT",
+  "LICENSE-APACHE",
+]
+
+[dependencies]
+frost-core = { version = "=2.2.0", features = ["internals"] }
+frost-ed25519 = { version = "=2.2.0", features = ["serialization"] }
+hmac = "0.12"
+sha2 = "0.10"
+zeroize = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+ed25519-dalek = "2"
+hex = "0.4"
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
